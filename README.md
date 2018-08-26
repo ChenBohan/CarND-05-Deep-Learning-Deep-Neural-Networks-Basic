@@ -3,6 +3,10 @@
 
 ## Rectified linear unit (ReLu)
 
+<img src="https://github.com/ChenBohan/AI-ML-DL-03-Intro-to-Deep-Neural-Network/blob/master/readme_img/ReLus.png" width = "50%" height = "50%" div align=center />
+
+<img src="https://github.com/ChenBohan/AI-ML-DL-03-Intro-to-Deep-Neural-Network/blob/master/readme_img/backprop.png" width = "50%" height = "50%" div align=center />
+
 ```python
 # Weights and biases
 weights = [
@@ -35,11 +39,17 @@ The function returns 0 if ``x`` is negative, otherwise it returns ``x``. TensorF
 
 ### The first way: Early Termination
 
+<img src="https://github.com/ChenBohan/AI-ML-DL-03-Intro-to-Deep-Neural-Network/blob/master/readme_img/Early%20Termination.png" width = "50%" height = "50%" div align=center />
+
 ### The second way: Regularization
+
+<img src="https://github.com/ChenBohan/AI-ML-DL-03-Intro-to-Deep-Neural-Network/blob/master/readme_img/Regularization.png" width = "50%" height = "50%" div align=center />
 
 #### Dropout
 
 Dropout is a regularization technique for reducing overfitting.
+
+<img src="https://github.com/ChenBohan/AI-ML-DL-03-Intro-to-Deep-Neural-Network/blob/master/readme_img/Dropout.png" width = "50%" height = "50%" div align=center />
 
 TensorFlow provides the ``tf.nn.dropout()`` function.
 
