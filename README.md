@@ -1,39 +1,19 @@
 # CarND-05-Deep-Learning-Deep-Neural-Networks-Basic
   Udacity Self-Driving Car Engineer Nanodegree: Deep Neural Network
 
-## Rectified linear unit (ReLu)
+## ReLu (Rectified linear unit)
+
+A Rectified linear unit (ReLU) is type of activation function that is defined as ``f(x) = max(0, x)``.
 
 <img src="https://github.com/ChenBohan/AI-ML-DL-03-Intro-to-Deep-Neural-Network/blob/master/readme_img/ReLus.png" width = "50%" height = "50%" div align=center />
 
 <img src="https://github.com/ChenBohan/AI-ML-DL-03-Intro-to-Deep-Neural-Network/blob/master/readme_img/backprop.png" width = "50%" height = "50%" div align=center />
 
 ```python
-# Weights and biases
-weights = [
-    tf.Variable(hidden_layer_weights),
-    tf.Variable(out_weights)]
-biases = [
-    tf.Variable(tf.zeros(3)),
-    tf.Variable(tf.zeros(2))]
-
-# Input
-features = tf.Variable([[1.0, 2.0, 3.0, 4.0], [-1.0, -2.0, -3.0, -4.0], [11.0, 12.0, 13.0, 14.0]])
-
-# TODO: Create Model
 hidden_layer = tf.add(tf.matmul(features, weights[0]), biases[0])
 hidden_layer = tf.nn.relu(hidden_layer)
 logits = tf.add(tf.matmul(hidden_layer, weights[1]), biases[1])
-
-# TODO: save and print session results on variable output
-with tf.Session() as sess:
-    sess.run(tf.global_variables_initializer())
-    output = sess.run(logits)
-    print(output)
 ```
-
-A Rectified linear unit (ReLU) is type of activation function that is defined as ``f(x) = max(0, x)``. 
-
-The function returns 0 if ``x`` is negative, otherwise it returns ``x``. TensorFlow provides the ReLU function as ``tf.nn.relu()``.
 
 ### Optimizer
 
