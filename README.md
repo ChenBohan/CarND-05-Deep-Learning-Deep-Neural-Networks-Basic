@@ -1,4 +1,4 @@
-# AI-Deep-Learning-03-Intro-to-Deep-Neural-Network
+# CarND-05-Deep-Learning-Deep-Neural-Networks-Basic
   Udacity Self-Driving Car Engineer Nanodegree: Deep Neural Network
 
 ## Rectified linear unit (ReLu)
