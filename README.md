@@ -4,7 +4,7 @@
 ## Further Reading
 
 - [More examples of TensorFlow](https://github.com/aymericdamien/TensorFlow-Examples)
-- 
+- [Dropout: A Simple Way to Prevent Neural Networks fromOverfitting](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf)
 
 ## ReLu (Rectified linear unit)
 
@@ -63,21 +63,31 @@ saver.restore(sess, save_file)
 
 ## Prevent over fitting
 
-### The first way: Early Termination
+### 1. Early Termination
 
 <img src="https://github.com/ChenBohan/AI-ML-DL-03-Intro-to-Deep-Neural-Network/blob/master/readme_img/Early%20Termination.png" width = "50%" height = "50%" div align=center />
 
-### The second way: Regularization
+### 2. Regularization
 
 <img src="https://github.com/ChenBohan/AI-ML-DL-03-Intro-to-Deep-Neural-Network/blob/master/readme_img/Regularization.png" width = "50%" height = "50%" div align=center />
 
-#### Dropout
+### 3. Dropout
 
 Dropout is a regularization technique for reducing overfitting.
 
-<img src="https://github.com/ChenBohan/AI-ML-DL-03-Intro-to-Deep-Neural-Network/blob/master/readme_img/Dropout.png" width = "50%" height = "50%" div align=center />
+The tf.nn.dropout() function takes in two parameters:
 
-TensorFlow provides the ``tf.nn.dropout()`` function.
+1. ``hidden_layer``: the tensor to which you would like to apply dropout
+
+2. ``keep_prob``: the probability of keeping (i.e. not dropping) any given unit
+
+Note:
+
+1. During training, a good starting value for keep_prob is 0.5.
+
+2. During testing, use a keep_prob value of 1.0 to keep all units and maximize the power of the model.
+
+<img src="https://github.com/ChenBohan/AI-ML-DL-03-Intro-to-Deep-Neural-Network/blob/master/readme_img/Dropout.png" width = "50%" height = "50%" div align=center />
 
 ```python
 keep_prob = tf.placeholder(tf.float32) # probability to keep units
@@ -89,14 +99,4 @@ hidden_layer = tf.nn.dropout(hidden_layer, keep_prob)
 logits = tf.add(tf.matmul(hidden_layer, weights[1]), biases[1])
 ```
 
-The tf.nn.dropout() function takes in two parameters:
 
-1. ``hidden_layer``: the tensor to which you would like to apply dropout
-
-2. ``keep_prob``: the probability of keeping (i.e. not dropping) any given unit
-
-PS:
-
-1. During training, a good starting value for keep_prob is 0.5.
-
-2. During testing, use a keep_prob value of 1.0 to keep all units and maximize the power of the model.
