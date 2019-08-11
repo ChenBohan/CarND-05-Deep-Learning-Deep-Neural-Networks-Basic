@@ -1,13 +1,16 @@
 # CarND-05-Deep-Learning-Deep-Neural-Networks-Basic
   Udacity Self-Driving Car Engineer Nanodegree: Deep Neural Network
 
+## Further Reading
+
+- [More examples of TensorFlow](https://github.com/aymericdamien/TensorFlow-Examples)
+- 
+
 ## ReLu (Rectified linear unit)
 
 A Rectified linear unit (ReLU) is type of activation function that is defined as ``f(x) = max(0, x)``.
 
 <img src="https://github.com/ChenBohan/AI-ML-DL-03-Intro-to-Deep-Neural-Network/blob/master/readme_img/ReLus.png" width = "50%" height = "50%" div align=center />
-
-<img src="https://github.com/ChenBohan/AI-ML-DL-03-Intro-to-Deep-Neural-Network/blob/master/readme_img/backprop.png" width = "50%" height = "50%" div align=center />
 
 ```python
 hidden_layer = tf.add(tf.matmul(features, weights[0]), biases[0])
@@ -15,7 +18,7 @@ hidden_layer = tf.nn.relu(hidden_layer)
 logits = tf.add(tf.matmul(hidden_layer, weights[1]), biases[1])
 ```
 
-### Optimizer
+## Optimizer
 
 ```python
 # Define loss and optimizer
@@ -44,7 +47,19 @@ with tf.Session() as sess:
             sess.run(optimizer, feed_dict={x: batch_x, y: batch_y})
 ```
 
-Calling the ``mnist.train.next_batch()`` function returns a subset of the training data. 
+## Save and Restore TensorFlow Models
+
+```python
+# Class used to save and/or restore Tensor Variables
+saver = tf.train.Saver()
+
+# Save the model
+saver.save(sess, save_file)
+
+# Load the weights and bias
+saver.restore(sess, save_file)
+```
+
 
 ## Prevent over fitting
 
